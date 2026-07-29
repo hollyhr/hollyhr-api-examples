@@ -1,0 +1,22 @@
+{
+  "name": "hollyhr-api-examples",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runnable examples for the HollyHR public API, webhooks and hosted MCP endpoint.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "first-call": "node examples/first-call.mjs",
+    "mcp-whoami": "node examples/mcp-whoami.mjs",
+    "paginate-people": "node examples/paginate-people.mjs",
+    "safe-update-person": "node examples/safe-update-person.mjs",
+    "verify-webhook": "node examples/verify-webhook-signature.mjs"
+  },
+  "dependencies": {
+    "@hollyhr/api-client": "0.1.0-preview.2",
+    "@modelcontextprotocol/client": "2.0.0"
+  }
+}
