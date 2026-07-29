@@ -9,6 +9,7 @@
     "node": ">=20"
   },
   "scripts": {
+    "check": "node --check examples/first-call.mjs && node --check examples/mcp-whoami.mjs && node --check examples/paginate-people.mjs && node --check examples/safe-update-person.mjs && node --check examples/verify-webhook-signature.mjs",
     "first-call": "node examples/first-call.mjs",
     "mcp-whoami": "node examples/mcp-whoami.mjs",
     "paginate-people": "node examples/paginate-people.mjs",
