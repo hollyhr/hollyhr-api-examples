@@ -4,9 +4,9 @@ The `HollyHR - Start Here` collection is the shortest route to a useful first
 response. The `HollyHR Public API` collection is the generated reference for
 the complete public OpenAPI contract.
 
-- [Open the HollyHR public workspace](https://go.postman.co/workspace/61bbbf50-1cb0-4e93-8a97-089d64169b56)
-- [Open HollyHR - Start Here](https://go.postman.co/collection/57810961-57810961-80df1e0c-e46f-5f12-b4d0-151f4f74518c)
-- [Open the complete HollyHR Public API collection](https://go.postman.co/collection/57810961-57810961-ba5e7ec4-d3bd-5151-b471-c452d6ef68a7)
+- [Open the HollyHR public workspace](https://www.postman.com/hollyhr-4691443/workspace/hollyhr-public-api~73d93b69-5cda-44a4-b491-db7062f974bd/overview)
+- [Open HollyHR - Start Here](https://www.postman.com/hollyhr-4691443/workspace/hollyhr-public-api~73d93b69-5cda-44a4-b491-db7062f974bd/collection/57810961-cb33ed54-f10a-4298-9e48-21ef4a1398dd)
+- [Open the complete HollyHR Public API collection](https://www.postman.com/hollyhr-4691443/workspace/hollyhr-public-api~73d93b69-5cda-44a4-b491-db7062f974bd/collection/57810961-d54d7cd9-96ee-4f26-abdf-7af6b0a8ec12)
 
 Neither collection contains an API key. After importing or forking a
 collection, set these collection variables locally:
