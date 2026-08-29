@@ -1,0 +1,153 @@
+{
+  "info": {
+    "_postman_id": "80df1e0c-e46f-5f12-b4d0-151f4f74518c",
+    "name": "HollyHR - Start Here",
+    "description": "Get from a scoped HollyHR API key to a useful SME HR workflow in four requests.\n\n1. Confirm the connected workspace and granted scopes.\n2. Read the people directory.\n3. See who is away.\n4. Build a bounded pay-period change pack.\n\nSet `baseUrl` and `bearerToken` locally before sending a request. The committed and published collection never contains a credential. Begin with a disposable tenant and grant only the scopes required by the requests you intend to run.\n\nQuickstart: https://developers.hollyhr.com/quickstart\nAPI documentation: https://developers.hollyhr.com\nRunnable examples: https://github.com/hollyhr/hollyhr-api-examples",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Request completed successfully\", function () {",
+          "  pm.expect(pm.response.code).to.be.oneOf([200, 201, 202, 204]);",
+          "});",
+          "",
+          "pm.test(\"Response includes a request ID\", function () {",
+          "  const requestId = pm.response.headers.get(\"X-Request-ID\");",
+          "  pm.expect(requestId, \"Keep this ID when asking HollyHR support for help\").to.be.a(\"string\").and.not.empty;",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.hollyhr.com/api/v1",
+      "type": "string",
+      "description": "Your HollyHR workspace API base URL. Replace sandbox with your workspace subdomain."
+    },
+    {
+      "key": "bearerToken",
+      "value": "",
+      "type": "string",
+      "description": "An organisation-scoped HollyHR API key. Set this locally and never publish its current value."
+    },
+    {
+      "key": "fromDate",
+      "value": "2026-08-01",
+      "type": "string",
+      "description": "Inclusive start date for time-off and payroll change queries."
+    },
+    {
+      "key": "toDate",
+      "value": "2026-08-31",
+      "type": "string",
+      "description": "Inclusive end date for time-off and payroll change queries."
+    }
+  ],
+  "item": [
+    {
+      "id": "8f5826f7-858c-5aa0-bc08-f01cb7b312c3",
+      "name": "1. Confirm the connected workspace",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/me",
+        "description": "The fastest first 200 response. Confirms the organisation, environment, key identity and explicitly granted scopes without returning employee records."
+      },
+      "response": []
+    },
+    {
+      "id": "d748a386-4052-5e9a-a796-e429427a256b",
+      "name": "2. List the first ten people",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/people?limit=10&sort=updated_at_desc",
+          "host": ["{{baseUrl}}"],
+          "path": ["people"],
+          "query": [
+            { "key": "limit", "value": "10" },
+            { "key": "sort", "value": "updated_at_desc" }
+          ]
+        },
+        "description": "Requires `people:read`. Returns a deny-by-default projection with opaque public IDs and cursor pagination."
+      },
+      "response": []
+    },
+    {
+      "id": "918f3684-e71f-5850-80a7-5f4d726f4c86",
+      "name": "3. See who is away",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/time-off/who-is-out?from={{fromDate}}&to={{toDate}}&limit=25",
+          "host": ["{{baseUrl}}"],
+          "path": ["time-off", "who-is-out"],
+          "query": [
+            { "key": "from", "value": "{{fromDate}}" },
+            { "key": "to", "value": "{{toDate}}" },
+            { "key": "limit", "value": "25" }
+          ]
+        },
+        "description": "Requires `time_off:read`. Returns approved, permission-safe absence information for the selected period without exposing medical content or raw special-category labels."
+      },
+      "response": []
+    },
+    {
+      "id": "f20c746f-868f-5138-9f2b-8fe5cf9d039e",
+      "name": "4. Prepare a payroll change pack",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/payroll-changes-export?from={{fromDate}}&to={{toDate}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["payroll-changes-export"],
+          "query": [
+            { "key": "from", "value": "{{fromDate}}" },
+            { "key": "to", "value": "{{toDate}}" }
+          ]
+        },
+        "description": "Requires the export's documented read scopes. Produces a bounded pay-period change pack from HollyHR's current records for review before any downstream payroll action."
+      },
+      "response": []
+    }
+  ]
+}
