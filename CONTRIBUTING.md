@@ -9,8 +9,9 @@ Before opening a pull request:
 3. State the exact API scopes required.
 4. Stop safely when an ETag, idempotency key or confirmation boundary is
    missing.
-5. Run every changed example on Node.js 20 or newer against a disposable
-   HollyHR tenant.
+5. Run every changed Node example on Node.js 20 or newer and every changed
+   Python example on Python 3.11 or newer. Use a disposable HollyHR tenant for
+   live proof.
 
 For product support, use the
 [HollyHR developer support route](https://developers.hollyhr.com/support).
