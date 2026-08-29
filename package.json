@@ -20,7 +20,7 @@
     "verify-webhook": "node examples/verify-webhook-signature.mjs"
   },
   "dependencies": {
-    "@hollyhr/api-client": "0.1.0-preview.4",
+    "@hollyhr/api-client": "0.1.0-preview.5",
     "@modelcontextprotocol/client": "2.0.0"
   }
 }
