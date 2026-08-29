@@ -140,7 +140,7 @@ Use the raw request body. Reject deliveries when verification fails.
 - [5-minute quickstart](https://developers.hollyhr.com/quickstart)
 - [API reference and guides](https://developers.hollyhr.com)
 - [OpenAPI 3.1 document](https://developers.hollyhr.com/openapi.v1.yaml)
-- [HollyHR public Postman workspace](https://go.postman.co/workspace/61bbbf50-1cb0-4e93-8a97-089d64169b56)
+- [HollyHR public Postman workspace](https://www.postman.com/hollyhr-4691443/workspace/hollyhr-public-api~73d93b69-5cda-44a4-b491-db7062f974bd/overview)
 - [Postman collection source and setup](./postman/README.md)
 - [TypeScript SDK](https://www.npmjs.com/package/@hollyhr/api-client)
 - [TypeScript SDK source](https://github.com/hollyhr/hollyhr-api-client)
