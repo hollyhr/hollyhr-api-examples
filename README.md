@@ -145,6 +145,8 @@ Use the raw request body. Reject deliveries when verification fails.
 - [TypeScript SDK](https://www.npmjs.com/package/@hollyhr/api-client)
 - [TypeScript SDK source](https://github.com/hollyhr/hollyhr-api-client)
 - [MCP guide](https://developers.hollyhr.com/mcp)
+- [Official MCP discovery repository](https://github.com/hollyhr/hollyhr-mcp)
+- [HollyHR connector on Smithery](https://smithery.ai/servers/hollyhr/hollyhr)
 - [Support](https://developers.hollyhr.com/support)
 
 The HollyHR API is in Public Preview. The TypeScript SDK remains a prerelease,
